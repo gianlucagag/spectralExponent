@@ -66,7 +66,7 @@ def compute_SpectralExponent(XX, YY, do_plot=True):
     idxs_peaks = find_peaks(Yi)[0]
     threResPks= np.median(np.absolute(YRes0 - np.median(YRes0))) * 1
     
-#     threResPks= max(threResPks, .1) # this is a heuristc value based on typical psd from eeg with unit of microV^2/Hz
+#     threResPks= max(threResPks, .1) # this is a heuristic value based on typical psd from eeg with unit of microV^2/Hz
     
     idxs_peaks = idxs_peaks[YRes0[idxs_peaks] > threResPks ]
     boolYdev2 = np.zeros_like(boolYdev)
@@ -154,3 +154,5 @@ def compute_SpectralExponent(XX, YY, do_plot=True):
 # YY = psd_1chan[frBins]
 # plt.figure(dpi=300, figsize=(4,4))
 # slope, inter, stats, vectors = compute_SpectralExponent(XX, YY, do_plot=True)
+# plt.xlabel('Frequency (Hz)')
+# plt.ylabel(r'PSD ($\mu V^2$/Hz)') #  (a.u.) for the fake signal
